@@ -7,7 +7,15 @@ import App from './containers/App'
 import configureStore from './store/configureStore'
 import 'todomvc-app-css/index.css'
 
-const store = configureStore()
+const initialState = {todos: [
+  {
+    text: 'Use Redux',
+    completed: false,
+    id: 0
+  }
+]};
+
+const store = configureStore(initialState)
 
 render(
   <Provider store={store}>
