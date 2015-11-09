@@ -1,5 +1,6 @@
-import * as ActionTypes from '../constants/CardActionsTypes'
+// https://facebook.github.io/react/docs/update.html
 import update from 'react-addons-update'
+import * as ActionTypes from '../constants/CardActionsTypes'
 import createReducer from '../utils/createReducer.js'
 
 const cardActions = {

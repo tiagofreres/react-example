@@ -1,25 +1,28 @@
 import React, { Component, PropTypes } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import Header from '../components/Header'
-import MainSection from '../components/MainSection'
-import * as TodoActions from '../actions/todos'
+import CardList from '../components/CardList'
+import * as cardActions from '../actions/cards'
 
 class App extends Component {
   render() {
-    const { todos, actions, card } = this.props
+    const { cards, actions } = this.props
     return (
       <div>
-        <Header addTodo={actions.addTodo} />
-        <MainSection todos={todos} actions={actions} />
-        <Image source={card.source} name={card.name} />
+        <CardList cards={cards} {...actions} />
       </div>
     )
   }
 }
 
 App.propTypes = {
-  todos: PropTypes.array.isRequired,
+  cards: propTypes.arrayOf(PropTypes.shape({
+    selected: PropTypes.bool.isRequired,
+    choosed: PropTypes.bool.isRequired,
+    name: PropTypes.string.isRequired,
+    source: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired
+  })).isRequired,
   actions: PropTypes.object.isRequired
 }
 
@@ -31,7 +34,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(TodoActions, dispatch)
+    actions: bindActionCreators(cardActions, dispatch)
   }
 }
 

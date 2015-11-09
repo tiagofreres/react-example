@@ -5,19 +5,18 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import App from './containers/App'
 import configureStore from './store/configureStore'
-import 'todomvc-app-css/index.css'
 
-const initialState = {todos: [
-  {
-    text: 'Use Redux',
-    completed: false,
-    id: 0
-  }
-],
-card: {
-  source: '/static/assets/basic/1.png',
-  name: 'HearthStone Card'
-}};
+const initialState = {
+  cards: [
+    {
+      id: 1,
+      source: '/static/assets/basic/1.png',
+      name: 'HearthStone Card',
+      selected: false,
+      choosed: false
+    }
+  ]
+};
 
 const store = configureStore(initialState)
 

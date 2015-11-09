@@ -2,28 +2,30 @@ import React, { PropTypes, Component } from 'react'
 import classnames from 'classnames'
 
 class Card extends Component {
-  constructor(props, context) {
-    super(props, context)
-    this.state = { selected: false };
+  onClick() {
+    this.props.onSelect(this.props.id);
   }
   render() {
-    const { source, name, onClick } = this.props;
-    const { selected } = this.state;
+    const { id, source, name, selected, choosed } = this.props;
     return (
-        <img className={card: true, selected}
-          src={source}
-          alt={name}
-          onClick={onClick} />;
+        <figure className={selected, choosed}>
+          <img
+            src={source}
+            alt={name}
+            onClick={this.onClick} />
+        </figure>
     )
   }
 }
 
 Card.propTypes = {
+  id: PropTypes.number.isRequired,
   source: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  onClick: PropTypes.func,
+  onSelect: PropTypes.func.isRequired,
   selected: PropTypes.bool.isRequired,
-  disabled: PropTypes.bool.isRequired
+  choosed: PropTypes.bool.isRequired,
+  onChoose: PropTypes.func
 }
 
 export default Card
