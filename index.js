@@ -13,7 +13,11 @@ const initialState = {todos: [
     completed: false,
     id: 0
   }
-]};
+],
+card: {
+  source: '/static/assets/basic/1.png',
+  name: 'HearthStone Card'
+}};
 
 const store = configureStore(initialState)
 
