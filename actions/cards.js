@@ -3,6 +3,6 @@ import * as types from '../constants/CardActionsTypes'
 import {actionCreator, optionsActionCreator} from 'redux-action-utils'
 
 export default {
-  selectCard: actionCreator(types.SELECT_CARD, 'id'),
-  chooseCard: actionCreator(types.CHOOSE_CARD, 'id')
+  onSelectCard: actionCreator(types.SELECT_CARD, 'id'),
+  onChooseCard: actionCreator(types.CHOOSE_CARD, 'id')
 };

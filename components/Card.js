@@ -6,7 +6,7 @@ class Card extends Component {
     this.props.onSelect(this.props.id);
   }
   render() {
-    const { id, source, name, selected, choosed } = this.props;
+    const { source, name, selected, choosed } = this.props;
     return (
         <figure className={selected, choosed}>
           <img

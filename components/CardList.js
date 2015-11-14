@@ -3,13 +3,16 @@ import classnames from 'classnames'
 import Card from './Card'
 
 class CardList extends Component {
+  componentWillMount() {
+    console.dir(this.props);
+  }
   render() {
-    const { cards, onSelect: onSelectCard, onChoose: onChooseCard } = this.props;
+    const { cards, onSelectCard, onChooseCard } = this.props;
     return (
       <ul>
         {
           cards.map(card =>
-            <Card key={card.id} {...card} onSelect={onSelect} onChoose={onChoose} />
+            <Card key={card.id} {...card} onSelect={onSelectCard} onChoose={onChooseCard} />
           )
         }
       </ul>
@@ -20,7 +23,7 @@ class CardList extends Component {
 CardList.propTypes = {
   onSelectCard: PropTypes.func.isRequired,
   onChooseCard: PropTypes.func.isRequired,
-  cards: propTypes.arrayOf(PropTypes.shape({
+  cards: PropTypes.arrayOf(PropTypes.shape({
     selected: PropTypes.bool.isRequired,
     choosed: PropTypes.bool.isRequired,
     name: PropTypes.string.isRequired,

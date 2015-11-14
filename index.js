@@ -1,4 +1,3 @@
-/* eslint-disable */
 import 'babel-core/polyfill'
 import React from 'react'
 import { render } from 'react-dom'

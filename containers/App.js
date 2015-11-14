@@ -5,6 +5,12 @@ import CardList from '../components/CardList'
 import * as cardActions from '../actions/cards'
 
 class App extends Component {
+  componentWillMount() {
+    console.dir(this.props);
+  }
+  componentDidMount() {
+    console.log('App mounted');
+  }
   render() {
     const { cards, actions } = this.props
     return (
@@ -16,7 +22,7 @@ class App extends Component {
 }
 
 App.propTypes = {
-  cards: propTypes.arrayOf(PropTypes.shape({
+  cards: PropTypes.arrayOf(PropTypes.shape({
     selected: PropTypes.bool.isRequired,
     choosed: PropTypes.bool.isRequired,
     name: PropTypes.string.isRequired,
