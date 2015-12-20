@@ -1,5 +1,5 @@
 {
-  "extends": "eslint-config-airbnb",
+  "extends": "airbnb",
   "env": {
     "browser": true,
     "mocha": true,
@@ -16,7 +16,9 @@
     "no-var": 0,
     "vars-on-top": 0,
     "block-scoped-var": 0,
-    "padded-blocks": 0
+    "padded-blocks": 0,
+    "no-else-return": 0,
+    "semi": 0
   },
   "plugins": [
     "react"

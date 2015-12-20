@@ -1,10 +1,14 @@
 /* eslint-disable */
-var path = require('path')
-var webpack = require('webpack')
+var path = require('path');
+var webpack = require('webpack');
 
 module.exports = {
+  devtool: 'cheap-module-source-map',
   entry: {
-    main: './index.js',
+    main: [
+      'webpack-hot-middleware/client',
+      './index.js'
+    ],
     test: './test.js'
   },
   output: {
@@ -12,6 +16,11 @@ module.exports = {
     filename: '[name].js',
     publicPath: '/dist/'
   },
+  plugins: [
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin()
+  ],
   module: {
     loaders: [{
       test: /\.js$/,
